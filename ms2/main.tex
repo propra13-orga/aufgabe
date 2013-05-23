@@ -1,0 +1,104 @@
+\documentclass{programmierpraktikum}
+\vorlesung{Programmierpraktikum}
+\semester{Sommersemester 2013}
+\betreuer{Wilfried Linder}
+\subtitle{Dungeon Crawler --- Meilenstein 2}
+
+\begin{document}
+
+\maketitle
+Im zweiten Meilenstein soll unser \textbf{Dungeon Crawler} etwas aufregender gemacht werden.
+Dazu werden eine Reihe weiterer fester Anforderungen kommen. Eine gute Softwarearchitektur kann
+dafür sorgen, dass diese Anforderungen problemlos umgesetzt werden können.
+%
+\section{Anforderungen für den zweiten Meilenstein}
+
+\subsection{Levelstruktur}
+Im ersten Meilenstein sollten 3 Räume erstellt werden. Diese 3 Räume oder mehr bilden nun den
+ersten Level. Im letzten Raum soll es einen Bossgegner geben. Wenn dieser besiegt ist geht es
+ins nächste Level. Wieviele Level sie implementieren bleibt Ihrer Fantasie überlassen.
+Mindestens jedoch 3 mit jeweils mindestens 3 Räumen.
+
+Der letzte Bossgegner muss "`besonders schwer"' sein.
+\subsection{Räume aus Textdateien einlesen}
+Anstatt die Räume fest im Code als Arrays oder ähnliches zu kodieren, sollten diese aus
+Textdateien eingelesen werden können. Die Textdatei sollte von Menschen les- und bearbeitbar
+sein. Ein Beispiel sehen sie in Listing.~\ref{lst:txtexample}.
+%
+\begin{center}
+  \begin{listing}[h!]
+    \begin{minted}[gobble=6,bgcolor=mintedbg]{text}
+      ################
+      #  F           G
+      # # # # # # #  #
+      # # # # # # #  #
+      # # # # # # #  #
+      # # #F# # # #  #
+      # # # # # # #  #
+      # # # # # # #  #
+      # # # # # # #  #
+      # # # # # # #  #
+      S        F     #
+      ################
+    \end{minted}
+    \caption{Beispiel-Raum-Datei. Die Rauten könnten Wände, das S den Eingang, das G den Ausgang und
+    die Fs irgendwelche Gegner sein. Welche Zeichen Sie verwenden bleibt Ihnen
+    überlassen.\label{lst:txtexample}}
+  \end{listing}
+\end{center}
+%
+\subsection{Checkpoints}
+Nach dem Sterben wieder von vorne beginnen zu müssen, kann frustrierend sein. Gönnen Sie dem Spieler
+daher die Möglichkeit an bestimmten festgelegten Stellen (z.B. jeder Eingang eines Raumes) wieder
+aufzutauchen, wenn der Spieler gestorben ist.  Allerdings darf das nicht unbegrenzt vonstatten gehen.
+Begrenzen Sie es durch eine bestimmte Anzahl an Leben.
+%
+\subsection{Bewegliche Gegner}
+Hauchen Sie den Gegnern mehr Leben ein und ermöglichen Sie dem Spieler diesen Gegnern das Leben
+wieder auszuhauchen.
+
+Es darf aber trotzdem (zusätzlich) bewegliche Fallen geben (z.B. Feuerbälle), die
+unzerstörbar sind. Ihrer Fantasie sind keine Grenzen gesetzt.
+%
+\subsection{Waffen}
+Gegner und Spieler sollen sich nicht einfach nur berühren müssen, um sich zu schaden, sondern auch
+über Waffen (Nah- oder Fernkampf) verfügen.
+%
+\subsection{Zauber}
+Zusätzlich zu Waffen sollen Spieler und Gegner auch zaubern können. Dazu braucht es Mana, das
+durch das Zaubern verbraucht wird.
+%
+\subsection{Schadenssystem}
+Um das Spiel etwas moderner zu gestalten sollen Spieler und Gegner auch Schaden, der über Tod oder
+Leben hinausgeht, erleiden können. Jede Waffe/jeder Zauber soll eine bestimmte Menge an Schaden
+austeilen, die der Spieler/Gegner erleidet und daraufhin Lebenspunkte verliert. Gehen diese Lebenspunkte
+auf 0, ist der Spieler tot und verliert ein Leben, bzw. ist der Gegner einfach tot.
+
+Da niemand gerne nackt rumläuft soll der Spieler auch noch über Rüstung verfügen, die den Schadenswert mindert.
+Sämtliche Berechnungsfunktionen, die dafür erforderlich sind, sowie das Maximum der Lebenspunkte usw.
+können Sie sich selbst ausdenken.
+%
+\subsection{Items}
+In der Welt sollen Items verteilt sein, die dem Spieler helfen. Zum Beispiel Pakete, die die Lebenspunkte
+auffüllen (Healthpacks), Manatränke, Waffen, Munition und was Ihnen noch einfällt. Mindestens müssen
+Healthpacks, Manatränke und Waffen sowie Geld (s.u.) implementiert werden.
+%
+\subsection{Shopsystem}
+Als besonderes Item soll es Geld geben, mit dem man an Shops, die in der Welt verteilt sind entweder alle
+anderen, oder auch zusätzliche, oder eben nicht alle anderen sondern nur einen Teil aller
+Items kaufen kann. Den Modus können Sie entscheiden.
+%
+\subsection{NPCs zur Interaktion}
+Außer dem Shop soll es noch mindestens einen weiteren NPC geben, der in irgendeiner Weise mit dem
+Spieler interagiert (z.B. die Story erzählt).
+%
+\subsection{Informationsleiste}
+Alle relevanten Informationen (Lebenspunkte, Manapunkte, aktuelle Waffe, etc.) müssen irgendwie auf
+dem Bildschirm dargestellt werden. In sehr vielen Spielen gibt es beispielsweise im unteren Bereich eine rote Kugel
+für Lebenspunkte, eine blaue Kugel für Manapunkte und dazwischen steht der Rest.
+%
+\section{Abgabe}
+Die Abgabe erfolgt wie beim ersten Meilenstein, wie mit Ihrem Tutor abgesprochen.
+
+Stichtag für den zweiten Meilenstein ist der \textbf{Übungstermin in der Woche vom 17. -- 22. Juni 2013}
+\end{document}

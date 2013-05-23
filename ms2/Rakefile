@@ -1,0 +1,15 @@
+require 'rake/clean'
+
+JOBNAME  = "main"
+BUILDDIR = "build"
+OUTNAME = File.basename File.dirname __FILE__
+LATEXOUT = File.join BUILDDIR, "#{OUTNAME}.pdf"
+
+CLEAN.include "build/*"
+
+task default: :compile
+
+task :compile do
+  Dir.mkdir BUILDDIR unless Dir.exists? BUILDDIR
+  sh "latexmk -pdf -pvc --jobname=\"#{LATEXOUT.gsub '.pdf', ''}\" #{JOBNAME}.tex"
+end
